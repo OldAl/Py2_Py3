@@ -22,7 +22,12 @@ from PySide.QtGui import (QApplication, QMainWindow, QMessageBox,
      
 __version__ = '3.0.0'
 
-import qrc_combine
+if float(platform.python_version()[0:3]) < 3.0:
+    import qrc_combine2
+else:
+    import qrc_combine3
+    
+# import qrc_combine
      
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
